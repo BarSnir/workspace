@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<folders>
+	<folder>
+		<title>go</title>
+		<snippets>
+			<snippet>
+				<title>gobin</title>
+				<content>/Users/bars/go/bin</content>
+			</snippet>
+		</snippets>
+	</folder>
+	<folder>
+		<title>Elasticsearch</title>
+		<snippets>
+			<snippet>
+				<title>cluster-check</title>
+				<content>GET _cluster/health
+GET _cat/nodes?v
+GET _cat/indices?v</content>
+			</snippet>
+			<snippet>
+				<title>Keysotre s3 client</title>
+				<content>s3.client.default.access_key
+s3.client.default.secret_key
+</content>
+			</snippet>
+			<snippet>
+				<title>switcher</title>
+				<content>GET _template/switcher_template
+
+
+PUT _template/switcher_template
+{
+  
+    &quot;order&quot; : 0,
+    &quot;index_patterns&quot; : [
+      &quot;switcher_*&quot;
+    ],
+    &quot;settings&quot; : {
+      &quot;index&quot; : {
+        &quot;number_of_shards&quot; : &quot;1&quot;,
+        &quot;number_of_replicas&quot; : &quot;2&quot;
+      }
+    },
+    &quot;mappings&quot; : {
+      &quot;_doc&quot; : {
+        &quot;dynamic&quot; : false,
+        &quot;properties&quot; : {
+          &quot;old_field&quot; : {
+            &quot;type&quot; : &quot;keyword&quot;
+          }
+        }
+      }
+    },
+    &quot;aliases&quot; : { }
+}
+
+DELETE switcher_v1
+DELETE switcher_v2
+PUT switcher_v1
+
+GET vehicles_feed_v1
+
+
+POST switcher_v1/_doc
+{
+  &quot;old_field&quot;: &quot;value&quot;
+}
+
+GET _ingest/pipeline/switcher_pipe
+
+GET switcher_v1/_search
+GET switcher_v2/_search
+
+GET switcher_v1
+GET switcher_v2</content>
+			</snippet>
+		</snippets>
+	</folder>
+	<folder>
+		<title>Laravel</title>
+		<snippets>
+			<snippet>
+				<title>Mysql Record</title>
+				<content> /** Facades */ 
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
+
+ /** Listen */
+DB::listen(function($query) {
+            Log::info(
+                $query-&gt;sql,
+                $query-&gt;bindings,
+                $query-&gt;time
+            );
+ });</content>
+			</snippet>
+		</snippets>
+	</folder>
+	<folder>
+		<title>git-workflow-commands</title>
+		<snippets>
+			<snippet>
+				<title>GET list files</title>
+				<content> git ls-files</content>
+			</snippet>
+			<snippet>
+				<title>Git reset</title>
+				<content>$ git reset --hard HEAD       (going back to HEAD)
+
+$ git reset --hard HEAD^      (going back to the commit before HEAD)
+$ git reset --hard HEAD~1     (equivalent to &quot;^&quot;)
+
+$ git reset --hard HEAD~2     (going back two commits before HEAD)</content>
+			</snippet>
+			<snippet>
+				<title>Git unstage</title>
+				<content> git restore --staged</content>
+			</snippet>
+			<snippet>
+				<title>Git restroe changes </title>
+				<content>git restore hipster.txt</content>
+			</snippet>
+			<snippet>
+				<title>Git rename file</title>
+				<content>git mv &lt;origin&gt; &lt;new-name&gt;</content>
+			</snippet>
+			<snippet>
+				<title>Git history</title>
+				<content>#default command
+git log
+
+# Shorter commits tokens
+git log --abbrev-commit
+
+# compress commits &amp; graph them
+git log --oneline --graph --decorate
+
+#git commits range
+git log 8d72572...a41ddf0
+
+#git history range
+git log --since=&quot;1 day ago&quot;
+
+#git hisotry on file
+git log -- &lt;file_name&gt;
+
+# commit timeline
+git log --follow -- &lt;file_name&gt;
+
+# commit expend metadata
+git show &lt;commit-number&gt;
+</content>
+			</snippet>
+			<snippet>
+				<title>Git diff commit</title>
+				<content>git diff &lt;commit&gt; &lt;commit/HEAD&gt;
+git diff &lt;branch&lt; origin/&lt;branch&gt;</content>
+			</snippet>
+		</snippets>
+	</folder>
+	<folder>
+		<title>git-user-commands</title>
+		<snippets>
+			<snippet>
+				<title>config-user</title>
+				<content>git config --global user.name &lt;name&gt;
+git config --global user.email &lt;email&gt;
+</content>
+			</snippet>
+			<snippet>
+				<title>verify-user</title>
+				<content>git config --global --list</content>
+			</snippet>
+			<snippet>
+				<title>verify-branch-changes</title>
+				<content>git status</content>
+			</snippet>
+			<snippet>
+				<title>config-default-editor</title>
+				<content>git config --global core.editor &quot;code&quot;</content>
+			</snippet>
+			<snippet>
+				<title>open-config-file</title>
+				<content>git config --global -e</content>
+			</snippet>
+		</snippets>
+	</folder>
+	<folder>
+		<title>git-branches</title>
+		<snippets>
+			<snippet>
+				<title>basics</title>
+				<content>git branch -a
+git branch mybranch
+git branch -m mybranch newbranch
+git branch -d newbranch</content>
+			</snippet>
+		</snippets>
+	</folder>
+	<folder>
+		<title>git-commands</title>
+		<snippets>
+			<snippet>
+				<title>alias</title>
+				<content>mate ~/.gitconfig
+git config --global alias.hist &quot;log --all --graph --decorate --oneline&quot;
+mate ~/.gitconfig</content>
+			</snippet>
+		</snippets>
+	</folder>
+</folders>
