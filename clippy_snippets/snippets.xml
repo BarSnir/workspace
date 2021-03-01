@@ -194,7 +194,8 @@ git config --global user.email &lt;email&gt;
 				<content>git branch -a
 git branch mybranch
 git branch -m mybranch newbranch
-git branch -d newbranch</content>
+git branch -d newbranch
+git merge &lt;source-to-merge&gt;</content>
 			</snippet>
 		</snippets>
 	</folder>
